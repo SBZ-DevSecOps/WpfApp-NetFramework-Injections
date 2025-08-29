@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # The repository will be scanned on demand
 jobs:
   scan-with-local-scanner:
-    runs-on:  [self-hosted, sbz]
+    runs-on:  [self-hosted, Windows]
     environment: aikido
     steps:
       - name: Checkout repository          
