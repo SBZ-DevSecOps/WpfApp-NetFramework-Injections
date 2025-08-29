@@ -232,13 +232,13 @@ namespace WpfApp_NetFramework_Injections.Vulnerabilities
         }
 
         // 12) PowerShell Injection
-        public static void RunPowershellInjection(string ps)
+        public static void RunPowershellInjection(string ps = "powershell.exe")
         {
             try
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "powershell.exe",
+                    FileName = ps,
                     Arguments = "-NoProfile -Command " + ps, // ❌ user-controlled
                     UseShellExecute = true
                 });
