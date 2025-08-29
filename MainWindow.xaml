@@ -1,0 +1,515 @@
+﻿<Window x:Class="WpfApp_NetFramework_Injections.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_NetFramework_Injections"
+        mc:Ignorable="d"
+        Title="Top 10 OWASP Desktop Application" 
+        Height="1000" Width="1600"
+        WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="16">
+
+            <TextBlock x:Name="IntroText"
+                       Margin="0,0,0,16"
+                       Foreground="#263238"
+                       FontSize="20"
+                       FontWeight="Bold" />
+
+            <UniformGrid Columns="5" Rows="3">
+
+                <!-- 1 SQL Injection (référence) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="SqlLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="SqlDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="SqlInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="SqlButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="SqlButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="SqlResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 2 OS Command -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="CmdLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="CmdDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="CmdInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="CmdButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="CmdButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="CmdResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 3 LDAP -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="LdapLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="LdapDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="LdapInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="LdapButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="LdapButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="LdapResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 4 XPath -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="XpathLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="XpathDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="XpathInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="XpathButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="XpathButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="XpathResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 5 XXE (multiligne) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="XxeLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="XxeDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="XxeInput" BorderThickness="0" Background="Transparent" Padding="8,6"
+                         Height="90" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        </Border>
+                        <Button Name="XxeButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="XxeButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="XxeResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 6 XSLT (multiligne) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="XsltLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="XsltDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="XsltInput" BorderThickness="0" Background="Transparent" Padding="8,6"
+                         Height="90" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        </Border>
+                        <Button Name="XsltButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="XsltButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="XsltResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 7 OS Path -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="PathLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="PathDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="PathInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="PathButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="PathButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="PathResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 8 Expression -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="ExprLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="ExprDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="ExprInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="ExprButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="ExprButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="ExprResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 9 Regex (2 champs) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="RegexLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="RegexDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,4">
+                            <TextBox Name="RegexPatternInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,4,0,8">
+                            <TextBox Name="RegexSampleInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="RegexButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="RegexButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="RegexResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 10 Proc Args (2 champs) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="ArgsLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="ArgsDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,4">
+                            <TextBox Name="ArgsExeInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,4,0,8">
+                            <TextBox Name="ArgsArgsInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="ArgsButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="ArgsButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="ArgsResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 11 CSV -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="CsvLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="CsvDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="CsvInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="CsvButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="CsvButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="CsvResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 12 PowerShell -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="PsLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="PsDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="PsInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="PsButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="PsButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="PsResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 13 XAML (multiligne) -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="XamlLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="XamlDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="XamlInput" BorderThickness="0" Background="Transparent" Padding="8,6"
+                         Height="90" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        </Border>
+                        <Button Name="XamlButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="XamlButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="XamlResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 14 Reflection -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="ReflLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="ReflDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="ReflInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="ReflButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="ReflButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="ReflResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 15 Assembly Load -->
+                <Border CornerRadius="5" BorderThickness="2" BorderBrush="#2196F3" Background="#263238" Margin="8">
+                    <StackPanel Margin="14">
+                        <TextBlock Name="AsmLabel" FontWeight="Bold" FontSize="16" Foreground="#2196F3"/>
+                        <TextBlock Name="AsmDesc" FontSize="12" Margin="0,3" Foreground="White"/>
+                        <Border CornerRadius="6" Background="White" BorderBrush="#BDBDBD" BorderThickness="1" Width="360" Margin="0,10,0,8">
+                            <TextBox Name="AsmInput" BorderThickness="0" Background="Transparent" Padding="8,6"/>
+                        </Border>
+                        <Button Name="AsmButton" Width="220" Background="#2196F3" Foreground="#212121" Padding="10,6" Click="AsmButton_Click" Cursor="Hand">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="bd" CornerRadius="6" Background="{TemplateBinding Background}" BorderBrush="#9E9E9E" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="bd" Property="BorderBrush" Value="#616161"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="bd" Property="Background" Value="#B3E5FC"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="bd" Property="Opacity" Value="0.6"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Name="AsmResult" Margin="8,8,0,0" Foreground="#2196F3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>
